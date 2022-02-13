@@ -30,8 +30,8 @@ export default function Header(): JSX.Element {
         <div className="container">
           <div className="row">
             <div className="col fade-in fade-in-2">
-              <h1>Andrew M. Vernier</h1>
-              <p id="current-role">Software Engineer @ Microsoft</p>
+              <h1>Connor James Fox</h1>
+              <p id="current-role">Junior Golfer</p>
             </div>
           </div>
         </div>
