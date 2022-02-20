@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-// import { popup_image } from 'assets/js/main.js';
 import microsoft from 'assets/img/microsoft.png';
 import eecs485 from 'assets/img/eecs485.png';
 import amazon from 'assets/img/amazon.png';

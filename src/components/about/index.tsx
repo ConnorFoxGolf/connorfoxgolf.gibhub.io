@@ -18,11 +18,13 @@ export default function About(): JSX.Element {
           </div>
           <div className="row">
             <div className="col-xs-12 col-md-6">
+              {/* @Connor: decide on a picture for here */}
               <img src={andrew} className="img-fluid rounded" id="about-portrait" alt="" />
             </div>
             <div className="col-xs-12 col-md-6 about-info">
               <div className="about-text">
                 <p>
+                  {/* @Connor: remove what I wrote and write your summary here. */}
                   Hi!
                   My name is Andrew and I am a software engineer at Microsoft working on the Azure Privileged Identity Management team.
                   I graduated from the University of Michigan in December 2020 with a master's degree in Computer Science and Engineering.
@@ -36,6 +38,7 @@ export default function About(): JSX.Element {
                   I also enjoy working on DIY projects and playing sub-par golf.
                 </p>
                 <div className="center-button-wrapper">
+                  {/* TODO: replace with something more relevant to Connor */}
                   <a href={resume} className="custom-button btn btn-primary btn-lg page-scroll ">My Resume</a>
                 </div>
               </div>
@@ -45,6 +48,7 @@ export default function About(): JSX.Element {
       </div>
 
       {/* Contact */}
+      {/* TODO: decide what we want the contact section to look like */}
       <div id="contact">
         <div className="container">
           <div className="row">

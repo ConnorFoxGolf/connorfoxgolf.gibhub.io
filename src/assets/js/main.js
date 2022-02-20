@@ -1,6 +1,6 @@
 import $ from 'jquery';
 var originalPaddingHeight;
-var originalHomeColorOpacity = 0.7; /* Must match value in style.css #home */
+var originalHomeColorOpacity = 0.7; /* Must match value in App.css #home */
 
 $(document).ready(function()
 {
@@ -21,9 +21,6 @@ $(document).ready(function()
     });
 
     window.onscroll = scroll_header;
-
-    position_footer();
-    window.onresize = position_footer;
 
     /* Adjust page Y offset if necessary */
     if( window.pageYOffset > 0 && window.pageYOffset + window.innerHeight < $(document).height() )
@@ -53,9 +50,8 @@ function fade_in_elements(elements)
 }
 
 /* Shrink or Grow header and fade background image based on location on page */
-export function scroll_header(imgPath)
+export function scroll_header()
 {
-    console.log(imgPath);
     var scrollAmount = window.pageYOffset;
     if( scrollAmount > originalPaddingHeight )
     {
@@ -108,15 +104,16 @@ function scroll_to_link(scrollLocation)
     $('html, body').animate({ scrollTop: scrollLocation }, 500);
 }
 
-/* If a page is short, move footer to absolute positioning on bottom, otherwise, normal positioning */
-function position_footer()
-{
-    $('footer').removeClass('short-page-footer');
-    if( $('footer').position().top + $('footer').outerHeight() < window.innerHeight )
-    {
-        $('footer').addClass('short-page-footer');
-    }
-}
+// /* If a page is short, move footer to absolute positioning on bottom, otherwise, normal positioning */
+// function position_footer()
+// {
+//     // $('footer').removeClass('short-page-footer');
+//     // console.log('jquery', $('footer').position().top, $('footer').position().top + $('footer').outerHeight(), window.innerHeight);
+//     // if( $('footer').position().top + $('footer').outerHeight() < window.innerHeight )
+//     // {
+//     //     $('footer').addClass('short-page-footer');
+//     // }
+// }
 
 /* Popup experience image on click */
 export function popup_image(img) {

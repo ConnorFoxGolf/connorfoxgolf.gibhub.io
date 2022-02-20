@@ -1,0 +1,17 @@
+.table-container {
+  margin: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.table-content {
+  margin: auto;
+}
+
+.table-content th, td {
+  padding: 2px 10px;
+}
+
+.table-content td {
+  text-align: left;
+}
