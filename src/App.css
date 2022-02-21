@@ -51,10 +51,6 @@
     --secondary-color-filter: rgba(107, 77, 168, 0.85);
 }
 
-.fade-in {
-    opacity: 0;
-}
-
 /* Header */
 #header {
     width: 100%;
@@ -100,7 +96,7 @@ p.navbar-brand {
 .navbar-dark .navbar-nav .nav-link {
     background-color: #000;
     color: rgba(255, 255, 255, 0.6);
-    min-width: 100px;
+    white-space: nowrap;
 }
 
 .nav-link:hover {

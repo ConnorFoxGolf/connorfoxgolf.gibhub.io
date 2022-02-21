@@ -12,7 +12,7 @@ import Academics from 'components/academics';
 
 export default function App(): JSX.Element {
   return (
-    <div className="App fade-in fade-in-1">
+    <div className="App">
       <div className="app-minus-footer">
         <Header />
         <Routes>

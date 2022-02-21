@@ -14,7 +14,7 @@ export default function Header(): JSX.Element {
       }}>
         <div className="container">
           <div className="row">
-            <div className="col fade-in fade-in-2">
+            <div className="col">
               <h1>Connor James Fox</h1>
               <p id="current-role">Junior Golfer</p>
             </div>
