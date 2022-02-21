@@ -3,6 +3,7 @@ export interface GolfVital {
   value: string
 }
 
+/* @Connor: replace this data with your own. */
 export const golfVitals:GolfVital[] = [
   {
     name: 'Handicap',

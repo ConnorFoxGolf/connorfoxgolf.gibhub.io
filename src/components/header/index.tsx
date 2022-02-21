@@ -46,10 +46,13 @@ export default function Header(): JSX.Element {
                 <Link className={"nav-link " + (location === "/golfhistory" ? "active" : "")} to="/golfstats">Golf Stats</Link>
               </div>
               <div className="nav-item dropdown">
-                <Link className={"nav-link " + (location === "/experiences" ? "active" : "")} to="/experiences">Experience</Link>
+                <Link className={"nav-link " + (location === "/swingvideos" ? "active" : "")} to="/swingvideos">Swing Videos</Link>
+              </div>
+              <div className="nav-item dropdown">
+                <Link className={"nav-link " + (location === "/references" ? "active" : "")} to="/references">References</Link>
               </div>
               <div className="nav-item">
-                <Link className={"nav-link " + (location === "/publications" ? "active" : "")} to="/publications">Publications</Link>
+                <Link className={"nav-link " + (location === "/academics" ? "active" : "")} to="/academics">Academics</Link>
               </div>
             </div>
           </div>

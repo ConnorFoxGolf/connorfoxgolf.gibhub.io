@@ -1,13 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import 'assets/js/main';
 import About from './components/about';
-import Experiences from './components/experiences';
-import Publications from './components/publications';
 import Header from './components/header';
 import Footer from './components/footer';
-import 'assets/js/main';
 import GolfStats from 'components/golfStats';
+import SwingVideos from 'components/swingVideos';
+import References from 'components/references';
+import Academics from 'components/academics';
 
 export default function App(): JSX.Element {
   return (
@@ -17,8 +18,9 @@ export default function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="golfstats" element={<GolfStats />} />
-          <Route path="experiences" element={<Experiences />} />
-          <Route path="publications" element={<Publications />} />
+          <Route path="swingvideos" element={<SwingVideos />} />
+          <Route path="references" element={<References />} />
+          <Route path="academics" element={<Academics />} />
         </Routes>
       </div>
       <Footer />

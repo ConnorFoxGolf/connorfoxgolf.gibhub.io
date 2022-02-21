@@ -14,6 +14,7 @@ export interface GolfTournament {
   result: string;
 }
 
+/* @Connor: replace this data with your own. */
 export const golfTournaments:GolfTournament[] = [
   {
     dates: {

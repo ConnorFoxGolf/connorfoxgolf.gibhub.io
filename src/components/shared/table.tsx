@@ -1,35 +1,6 @@
 import React from 'react';
 import './table.css';
 
-// function useCustomAlignment(): [number, React.MutableRefObject<HTMLElement[]>] {
-//   // const RESET_TIMEOUT = 100;
-
-//   const [maxWidth, setMaxWidth] = useState(0);
-//   const dataRowRefs = useRef<HTMLElement[]>([]) as React.MutableRefObject<HTMLElement[]>;
-//   // let movementTimer: NodeJS.Timeout;
-
-//   const findMaxColWidths = () => {
-//     if (dataRowRefs.current) {
-//       setMaxWidth(Math.max(...dataRowRefs.current.map(dataRow => dataRow.offsetWidth)));
-//     }
-//   }
-
-//   console.log(maxWidth);
-
-//   useLayoutEffect(() => {
-//     findMaxColWidths();
-//   }, []);
-//   // window.addEventListener('resize', () => {
-//   //   clearInterval(movementTimer);
-//   //   movementTimer = setTimeout(findMaxRowWidth, RESET_TIMEOUT);
-//   // });
-
-//   return [
-//     maxWidth,
-//     dataRowRefs
-//   ] 
-// }
-
 interface Props {
   headers?: (JSX.Element | string)[];
   data: {
