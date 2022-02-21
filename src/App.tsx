@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'assets/js/main';
-import About from './components/about';
+import Home from './components/home';
 import Header from './components/header';
 import Footer from './components/footer';
 import GolfStats from 'components/golfStats';
@@ -16,7 +16,7 @@ export default function App(): JSX.Element {
       <div className="app-minus-footer">
         <Header />
         <Routes>
-          <Route path="/" element={<About />} />
+          <Route path="/" element={<Home />} />
           <Route path="golfstats" element={<GolfStats />} />
           <Route path="swingvideos" element={<SwingVideos />} />
           <Route path="references" element={<References />} />
