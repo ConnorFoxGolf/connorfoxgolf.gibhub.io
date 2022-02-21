@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import higgins from "assets/img/higgins.jpg";
+import { Parallax } from 'react-parallax';
+import Banner from './banner';
 
 export default function Header(): JSX.Element {
   let location = useLocation().pathname;
+  const [nameplateHeight, setNameplateHeight] = useState(0);
+
   return (
     <>
       {/* Header */}
-      {/* TODO: decide on a color scheme */}
-      <div id="header" style={{
-        background: `linear-gradient(to right, rgba(107, 77, 168, 0.7), rgba(17, 138, 188, 0.7)), url(${higgins}) no-repeat center bottom`,
-      }}>
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1>Connor James Fox</h1>
-              <p id="current-role">Junior Golfer</p>
+      <Parallax
+        renderLayer={(): JSX.Element => {
+          const scrolledPx = window.scrollY;
+          const initialHeight = 400;
+          const height = initialHeight - scrolledPx;
+          const minHeight = (initialHeight + nameplateHeight) / 2;
+          const percentScrolled = (initialHeight - height) / (initialHeight - minHeight);
+          return (
+            <div
+              style={{
+                color: 'white',
+                textTransform: 'uppercase',
+                width: '100vw',
+                height: `${height}px`,
+                minHeight: `${minHeight}px`,
+                background: `url(${higgins}) no-repeat center bottom`,
+                backgroundSize: 'cover'
+              }}
+            >
+              <Banner 
+                setNameplateHeight={setNameplateHeight} 
+                topToCenterPx={(height + scrolledPx) / 2} 
+                percentScrolled={percentScrolled} 
+              />
             </div>
-          </div>
-        </div>
-      </div>
+          );
+        }}
+      />
 
       {/* Nav Bar */}
       <nav className="navbar navbar-expand-md navbar-custom navbar-dark sticky-top">
