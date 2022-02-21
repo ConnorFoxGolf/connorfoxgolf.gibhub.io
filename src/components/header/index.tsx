@@ -27,7 +27,7 @@ export default function Header(): JSX.Element {
         <div className="container-fluid">
           <div className="navbar-header" id="header-logo">
             {/* @Connor */}
-            <Link className="navbar-brand scroll" to="/">AMV</Link>
+            <Link className="navbar-brand scroll" to="/" onClick={() => window.scrollTo({top: 0,left: 0, behavior: 'smooth'})}>AMV</Link>
           </div>
 
           <div className="navbar-header" id="header-button">
@@ -43,7 +43,7 @@ export default function Header(): JSX.Element {
                 <Link className={"nav-link scroll " + (location==="/" ? "active" : "")} to="/">Home</Link>
               </div>
               <div className="nav-item dropdown">
-                <Link className={"nav-link " + (location === "/golfhistory" ? "active" : "")} to="/golfstats">Golf Stats</Link>
+                <Link className={"nav-link " + (location === "/golfstats" ? "active" : "")} to="/golfstats">Golf Stats</Link>
               </div>
               <div className="nav-item dropdown">
                 <Link className={"nav-link " + (location === "/swingvideos" ? "active" : "")} to="/swingvideos">Swing Videos</Link>

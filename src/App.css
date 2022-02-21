@@ -155,6 +155,7 @@ p.navbar-brand {
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .show>.nav-link {
   color: var(--primary-color);
+  cursor: default;
 }
 
 .navbar>.container {
