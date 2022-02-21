@@ -26,7 +26,7 @@ export default function Header(): JSX.Element {
       <nav className="navbar navbar-expand-md navbar-custom navbar-dark sticky-top">
         <div className="container-fluid">
           <div className="navbar-header" id="header-logo">
-            {/* @Connor */}
+            {/* @Connor: Change "AMV" (my initials) to be whatever you want. This is just a link to the top of the homepage. */}
             <Link className="navbar-brand scroll" to="/" onClick={() => window.scrollTo({top: 0,left: 0, behavior: 'smooth'})}>AMV</Link>
           </div>
 
@@ -38,7 +38,6 @@ export default function Header(): JSX.Element {
 
           <div className="collapse navbar-collapse" id="collapsible-navbar">
             <div className="navbar-nav text-uppercase">
-              {/* @Connor: Create the tabs that you want here */}
               <div className="nav-item dropdown">
                 <Link className={"nav-link scroll " + (location==="/" ? "active" : "")} to="/">Home</Link>
               </div>

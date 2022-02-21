@@ -1,7 +1,6 @@
 import React from 'react';
-/* @Connor: delete the andrew line and remove the "// " from the connor line*/
-import andrew from 'assets/img/andrew.jpg';
-// import connor from 'assets/img/connor.jpg';
+/* @Connor: Replace "andrew.jpg" with the name of the file you just uploaded. Make sure this matches the name exactly (including the file extension). */
+import connor from 'assets/img/andrew.jpg';
 import resume from 'assets/files/andrew_vernier_resume.pdf';
 import SectionHeader from 'components/shared/sectionHeader';
 
@@ -12,8 +11,7 @@ export default function About() {
         <SectionHeader header="About" />
         <div className="row">
           <div className="col-xs-12 col-md-6">
-            {/* @Connor: decide on a picture for here. We will call it connor.jpg. Then change andrew to connor */}
-            <img src={andrew} className="img-fluid rounded" id="about-portrait" alt="" />
+            <img src={connor} className="img-fluid rounded" id="about-portrait" alt="Portrait of Connor" />
           </div>
           <div className="col-xs-12 col-md-6 about-info">
             <div className="about-text">
