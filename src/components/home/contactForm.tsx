@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
+/* TODO: backup plan if form fails */
+
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("mbjwoqdn");
 
@@ -93,13 +95,13 @@ export default function ContactForm() {
         <input type ="hidden" name="_next" value="https://amverni.github.io"/>
       </form>
 
-      <div className="row">
+      {/* <div className="row">
         <div className="col-xs-12 col-md-12">
           <p id="send-message-disclaimer"><em>
             After hitting send message, if you get a page telling you that this form needs activation, don't worry, I'll still get your message. This happens because the form gets deactivated after a period of time of not being used. Oddly enough my website is not most people's preferred method of contacting me, but don't let that stop you!
           </em></p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
