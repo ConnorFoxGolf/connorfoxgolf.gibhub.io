@@ -45,8 +45,7 @@ export default function Header(): JSX.Element {
       <nav className="navbar navbar-expand-md navbar-custom navbar-dark sticky-top">
         <div className="container-fluid">
           <div className="navbar-header" id="header-logo">
-            {/* @Connor: Change "AMV" (my initials) to be whatever you want. This is just a link to the top of the homepage. */}
-            <Link className="navbar-brand scroll" to="/" onClick={() => window.scrollTo({top: 0,left: 0, behavior: 'smooth'})}>AMV</Link>
+            <Link className="navbar-brand scroll" to="/" onClick={() => window.scrollTo({top: 0,left: 0, behavior: 'smooth'})}>CJF</Link>
           </div>
 
           <div className="navbar-header" id="header-button">
