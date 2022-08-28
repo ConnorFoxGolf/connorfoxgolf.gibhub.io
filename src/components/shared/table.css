@@ -1,7 +1,13 @@
+:root {
+  --fade-width: 30px;
+}
+
 .table-container {
-  margin: auto;
-  overflow-x: auto;
+  /* margin: auto;
+  overflow-x: auto; */
   white-space: nowrap;
+  padding: 0 var(--fade-width);
+  display: inline-block;
 }
 
 .table-content {
@@ -14,4 +20,39 @@
 
 .table-content td {
   text-align: left;
+}
+
+.masked-overflow {
+    overflow-x: auto;
+
+    /* The CSS mask */
+
+    /* The content mask is a linear gradient from top to bottom */
+    --mask-image-content: linear-gradient(
+        to left,
+        transparent,
+        black var(--fade-width),
+        black calc(100% - var(--fade-width)),
+        transparent
+    );
+
+    /* Here we scale the content gradient to the width of the container 
+       minus the scrollbar width. The height is the full container height */
+    --mask-size-content: 100%;
+
+    /* The scrollbar mask is a black pixel */
+    --mask-image-scrollbar: linear-gradient(black, black);
+
+    /* The width of our black pixel is the width of the scrollbar.
+       The height is the full container height */
+    --mask-size-scrollbar: 0%;
+
+    /* Apply the mask image and mask size variables */
+    mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+    mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+
+    /* Position the content gradient in the top left, and the 
+        scroll gradient in the top right */
+    mask-position: 0 0, 100% 0;
+    mask-repeat: no-repeat, no-repeat;
 }

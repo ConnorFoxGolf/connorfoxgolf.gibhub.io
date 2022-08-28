@@ -1,3 +1,8 @@
+html {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .App {
   text-align: center;
   position: relative;
@@ -330,8 +335,6 @@ footer a {
   #current-role {
     display: none;
   }
-
-
 }
 
 .experience-section {
@@ -419,3 +422,6 @@ p.technical-skills {
   font-size: 0.75em;
 }
 
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

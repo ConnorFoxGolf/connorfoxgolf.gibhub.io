@@ -29,6 +29,7 @@ export default function Table(props:Props):JSX.Element {
   ));
 
   return (
+    <div className='masked-overflow'>
     <div className="table-container">
       <table className="table-content">
         {headerRow}
@@ -36,6 +37,7 @@ export default function Table(props:Props):JSX.Element {
           {rows}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }
