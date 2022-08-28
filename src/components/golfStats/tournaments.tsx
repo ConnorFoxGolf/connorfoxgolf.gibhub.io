@@ -1,9 +1,16 @@
-import React from 'react';
-import { golfTournaments } from 'assets/data/golfTournaments';
+import React, { useEffect, useState } from 'react';
+import { GolfTournament, getGolfTournaments } from 'assets/data/golfTournaments';
 import Table from 'components/shared/table';
 import SectionHeader from 'components/shared/sectionHeader';
 
 export default function Tournaments() {
+  const [golfTournaments, setGolfTournaments] = useState<GolfTournament[]>([]);
+  useEffect(() => {
+    getGolfTournaments().then((tournaments) => {
+      setGolfTournaments(tournaments);
+    });
+  }, []);
+
   const tournamentsTableheaders = [
     'Date', 'Tournament', 'Scores', 'Result'
   ];
@@ -11,7 +18,7 @@ export default function Tournaments() {
   const tournamentTableData = golfTournaments.map(tournament => {
     const month = tournament.dates.start.format('MMMM');
     let day = tournament.dates.start.format('D');
-    if (tournament.dates.end) {
+    if (tournament.dates.end && !tournament.dates.start.isSame(tournament.dates.end)) {
       day += ` - ${tournament.dates.end.format('D')}`;
     }
     const year = tournament.dates.start.format('YYYY');
@@ -36,14 +43,18 @@ export default function Tournaments() {
     }
   });
 
+  const tournamentsTable = tournamentTableData.length ?
+    <Table 
+      data={tournamentTableData} 
+      headers={tournamentsTableheaders}
+    /> :
+    <p>Fetching tournaments data...</p>;
+
   return (
     <div className='golf-achievements-container'>
       <div className='container'>
         <SectionHeader header='Recent Tournaments' />
-        <Table
-          headers={tournamentsTableheaders}
-          data={tournamentTableData}
-        ></Table>
+        {tournamentsTable}
       </div>
     </div>
   )

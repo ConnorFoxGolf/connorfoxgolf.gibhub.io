@@ -8,8 +8,8 @@ export default function Vitals() {
   useEffect(() => {
     getGolfVitals().then((vitals) => {
       setGolfVitals(vitals);
-    })
-  });
+    });
+  }, []);
 
 
   const vitalsTableData = golfVitals.map(vital => {

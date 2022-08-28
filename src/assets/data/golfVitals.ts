@@ -1,5 +1,5 @@
 import golfVitalsFile from './golfVitals.csv';
-import { csvToTArray } from '../../utils/csv';
+import { csvToArray } from '../../utils/csv';
 
 export interface GolfVital {
   name: string,
@@ -7,15 +7,13 @@ export interface GolfVital {
 };
 
 function stringArrToGolfVital(vital: string[]): GolfVital {
-  return {
-    name: vital[0],
-    value: vital[1]
-  }
-};
+  const [name, value] = vital;
+  return { name, value };
+}
 
 export async function getGolfVitals(): Promise<GolfVital[]> {
   const golfVitalsRaw = await fetch(golfVitalsFile);
   const golfVitalsText = await golfVitalsRaw.text();
-  return csvToTArray(golfVitalsText, stringArrToGolfVital);
+  return csvToArray(golfVitalsText, stringArrToGolfVital);
 }
 

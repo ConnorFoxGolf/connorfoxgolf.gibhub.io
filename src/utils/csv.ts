@@ -42,7 +42,7 @@ export function csvToStringArray(dataRaw:string, options?: CsvToArrayOptions): s
   return data;
 }
 
-export function csvToTArray<T>(dataRaw:string, rowToT: (row:string[]) => T, options?: CsvToArrayOptions): T[] {
+export function csvToArray<T>(dataRaw:string, rowToT: (row:string[]) => T, options?: CsvToArrayOptions): T[] {
   const stringData = csvToStringArray(dataRaw);
   return stringData.map(rowToT);
 }

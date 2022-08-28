@@ -1,4 +1,6 @@
 import moment from 'moment'
+import golfTournamentsFile from './golfTournaments.csv';
+import { csvToArray } from 'utils/csv';
 
 export interface GolfTournament {
   dates: {
@@ -14,41 +16,34 @@ export interface GolfTournament {
   result: string;
 }
 
-/* @Connor: replace this data with your own. */
-export const golfTournaments:GolfTournament[] = [
-  {
+function stringArrToGolfTournament(tournament: string[]): GolfTournament {
+  const [
+    eventTitle,
+    eventCourse,
+    eventLocation,
+    startDate,
+    endDate,
+    scores,
+    result
+  ] = tournament;
+
+  return {
     dates: {
-      start: moment('05-05-2021', 'MM-DD-YYYY'),
-      end: moment('05-11-2021', 'MM-DD-YYYY')
+      start: moment(startDate, 'MM/DD/YYYY'),
+      end: endDate ? moment(endDate, 'MM/DD/YYYY') : undefined
     },
     event: {
-      title: 'The Masters',
-      course: 'Augusta National Golf Club',
-      location: 'Augusta, GA',
+      title: eventTitle,
+      course: eventCourse,
+      location: eventLocation
     },
-    scores: [85, 81],
-    result: 'Did not make the cut'
-  },
-  {
-    dates: {
-      start: moment('03-11-2021', 'MM-DD-YYYY'),
-      end: moment('03-14-2021', 'MM-DD-YYYY')
-    },
-    event: {
-      title: 'The Players Championship',
-      course: 'TPC Sawgrass'
-    },
-    scores: [72, 75],
-    result: '28th'
-  },
-  {
-    dates: {
-      start: moment('05-24-2021', 'MM-DD-YYYY')
-    },
-    event: {
-      title: 'Champions For Charity',
-    },
-    scores: [68],
-    result: '1st'
-  }
-];
+    scores: scores.split(',').map(score => parseInt(score)),
+    result
+  };
+}
+
+export async function getGolfTournaments(): Promise<GolfTournament[]> {
+  const golfTournamentsRaw = await fetch(golfTournamentsFile);
+  const golfTournamentsText = await golfTournamentsRaw.text();
+  return csvToArray(golfTournamentsText, stringArrToGolfTournament);
+}
