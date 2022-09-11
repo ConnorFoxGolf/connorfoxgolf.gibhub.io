@@ -3,8 +3,6 @@
 }
 
 .table-container {
-  /* margin: auto;
-  overflow-x: auto; */
   white-space: nowrap;
   padding: 0 var(--fade-width);
   display: inline-block;

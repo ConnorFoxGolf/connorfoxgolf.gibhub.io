@@ -1,0 +1,44 @@
+:root {
+  --video-width: 90vw;
+  --video-height: 75vh;
+  --fade-width: 5%;
+}
+
+.swingVideoCarouselContainer {
+  width: 100%;
+  background-color: aqua;
+  display: grid;
+  column-gap: 40px;
+  grid-template-columns: 1fr max-content 1fr;
+  height: var(--video-height);
+  overflow: hidden;
+  padding: 0 var(--fade-width);
+}
+
+.prevVideos, .nextVideos {
+  overflow: hidden;
+  max-width: calc(0.9 * var(--video-width));
+  max-height: calc(0.9 * var(--video-height));
+  margin: auto;
+}
+
+.currVideo {
+  max-width: 90vw;
+  max-height: 75vh;
+}
+
+.maskedOverflow {
+  --mask-image-content: linear-gradient(to left,
+      transparent,
+      black var(--fade-width),
+      black calc(100% - var(--fade-width)),
+      transparent);
+  --mask-size-content: 100%;
+  --mask-image-scrollbar: linear-gradient(black, black);
+  --mask-size-scrollbar: 0%;
+  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+  mask-position: 0 0, 100% 0;
+  mask-repeat: no-repeat, no-repeat;
+  overflow-x: auto;
+}
