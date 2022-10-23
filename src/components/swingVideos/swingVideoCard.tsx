@@ -66,28 +66,34 @@ export default function SwingVideoCard(props: Props) {
   // console.log(props.i, "scroll left", videoRef.current?.scrollLeft)
 
   return (
-    <VisibilitySensor 
-      onChange={(isVisible) => setIsVisible(isVisible)}
-      // offset={}
-    >
-      <Video
-        src={video}
-        className='swing-video-card-container'
-        ref={videoRef}
-        autoPlay
-      />
-      {/* <video 
-        ref={videoRef}
-        controls
-        // autoPlay
-        // playsInline
-        loop
-        className='swing-video-card-container' 
-        preload='meta'
-      >
-        <source src={video} type='video/mp4' />
-        Your browser does not support HTML5 video.
-      </video> */}
-    </VisibilitySensor>
+    // <VisibilitySensor 
+    //   onChange={(isVisible) => setIsVisible(isVisible)}
+    //   // offset={}
+    // >
+    //   <Video
+    //     src={video}
+    //     className='swing-video-card-container'
+    //     ref={videoRef}
+    //     autoPlay
+    //   />
+    //   {/* <video 
+    //     ref={videoRef}
+    //     controls
+    //     // autoPlay
+    //     // playsInline
+    //     loop
+    //     className='swing-video-card-container' 
+    //     preload='meta'
+    //   >
+    //     <source src={video} type='video/mp4' />
+    //     Your browser does not support HTML5 video.
+    //   </video> */}
+    // </VisibilitySensor>
+    <Video
+      src={video}
+      // className='swing-video-card-container'
+      ref={videoRef}
+      autoPlay
+    />
   );
 }

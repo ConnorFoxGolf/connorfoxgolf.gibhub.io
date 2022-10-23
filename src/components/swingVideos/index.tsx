@@ -4,6 +4,7 @@ import SwingVideoCard from './swingVideoCard';
 import bigTenPortrait from 'assets/img/swingVideos/big_ten_portrait.mov';
 import bigTenLandscape from 'assets/img/swingVideos/big_ten_landscape.mov';
 import './index.css';
+import Carousel, { Alignment } from 'nuka-carousel';
 
 
 const videoFiles = [
@@ -40,13 +41,13 @@ export default function SwingVideos() {
   }, []);
 
   const videos = videoFiles.map((video, i) => (
-    <div 
-      key={i} /** @Todo */
-      className='videoCard'
-      ref={(elt) => videoRefs.current[i] = elt}
-    >
-      <SwingVideoCard isActive={true} video={video} />
-    </div>
+    // <div 
+    //   // key={i} /** @Todo */
+    //   // className='videoCard'
+    //   ref={(elt) => videoRefs.current[i] = elt}
+    // >
+      <SwingVideoCard isActive={true} video={video} key={i} />
+    // </div>
   ));
 
   console.log(scrollerRef.current?.scrollLeft);
@@ -57,11 +58,19 @@ export default function SwingVideos() {
   return (
     <>
       <SectionHeader header="Swing Videos" />
-      <div className="videosContainer">
+      {/* <div className="videosContainer">
         <div ref={scrollerRef} className='videoScroller'>
           {videos}
         </div>
-      </div>
+      </div> */}
+      <Carousel
+        cellAlign={Alignment.Center}
+        wrapAround={false} 
+        slidesToShow={3}
+        className='videoScroller'
+      >
+        {videos}
+      </Carousel>
     </>
   );
 }
