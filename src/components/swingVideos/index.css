@@ -1,7 +1,3 @@
-/* .videos-container {
-  position: relative;
-} */
-
 .video-scroller::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
@@ -20,5 +16,5 @@
   width: 40px;
   font-size: 20px;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
 }
