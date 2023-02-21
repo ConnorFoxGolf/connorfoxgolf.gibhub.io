@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SectionHeader from 'components/shared/sectionHeader';
 import SwingVideoCard from './swingVideoCard';
 import bigTenPortrait from 'assets/img/swingVideos/big_ten_portrait.mov';
@@ -22,11 +22,11 @@ const videoFiles = [
 
 export default function SwingVideos(): JSX.Element {
   const [active, setActive] = useState(0);
+  const [numDisplayVideos, setNumDisplayVideos] = useState(2);
 
   const scrollerRef = useRef<HTMLDivElement>(null);
   const initialRefs: (HTMLDivElement | null)[] = [];
   videoFiles.forEach(() => initialRefs.push(null));
-  const videoRefs = useRef<(HTMLDivElement | null)[]>(initialRefs);
 
   const videos = videoFiles.map((video, i) => (
     <div 
@@ -37,17 +37,28 @@ export default function SwingVideos(): JSX.Element {
     </div>
   ));
 
-  console.log(scrollerRef.current?.scrollLeft);
-  console.log(videoRefs.current);
+  useEffect(() => {
+    const clientWidth = scrollerRef.current?.clientWidth;
+    if (clientWidth) {
+      if (clientWidth < 500) {
+        setNumDisplayVideos(1);
+      } else if (clientWidth < 1000) {
+        setNumDisplayVideos(2);
+      } else {
+        setNumDisplayVideos(3);
+      }
+    }
+  });
 
-  console.log(active);
 
   return (
-    <>
+    <div
+      ref={scrollerRef}
+    >
       <SectionHeader header="Swing Videos" />
       <Carousel
         cellAlign={Alignment.Center}
-        slidesToShow={2}
+        slidesToShow={numDisplayVideos}
         className='video-scroller'
         cellSpacing={20}
         beforeSlide={(_, finishSlide) => setActive(finishSlide)}
@@ -63,6 +74,6 @@ export default function SwingVideos(): JSX.Element {
       >
         {videos}
       </Carousel>
-    </>
+    </div>
   );
 }
